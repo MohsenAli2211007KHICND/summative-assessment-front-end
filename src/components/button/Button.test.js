@@ -20,3 +20,14 @@ test('should be button for the danger type', async () => {
     //ASSERT
     expect(button).toHaveClass('danger');
 });
+
+test('button should call callback on click event', (done) =>{
+    const callBackFun = (e) =>{
+        console.log(e);
+        done();
+    }
+    render(<button onClick={callBackFun}>Click Btn</button>)
+    screen.findByText('Click Btn').then((btn) =>{
+        userEvent.click(btn)
+    })
+})
