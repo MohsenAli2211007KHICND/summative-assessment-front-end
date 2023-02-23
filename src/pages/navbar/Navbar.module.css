@@ -1,0 +1,10 @@
+.navBar {
+    background: rgb(207, 178, 153);
+    background: linear-gradient(90deg, rgba(207, 178, 153, 0.8561625333727241) 3%, rgba(61, 194, 156, 1) 39%, rgba(133, 71, 175, 0.979411833092612) 100%);
+    box-shadow: 5px 10px 6px gray;
+}
+.navContainer{
+    display: flex;
+    justify-content: center;
+    height: 160px;
+}

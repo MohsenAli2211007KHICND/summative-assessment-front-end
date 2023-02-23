@@ -1,4 +1,5 @@
 import React from 'react'
+import './Button.css'
 
 export default function Button(
     {
@@ -9,7 +10,7 @@ export default function Button(
 ) {
   return (
     <>
-      <button className={type} onClick={onClick}>{children}</button>
+      <button className={`${type}`} onClick={onClick}>{children}</button>
     </>
   )
 }

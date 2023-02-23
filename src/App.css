@@ -1,0 +1,11 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+body {
+    background: rgb(218, 180, 196);
+    background: radial-gradient(circle, rgba(218, 180, 196, 1) 0%, rgba(108, 154, 209, 1) 100%);
+}
+
+ul {
+    list-style: none;
+}

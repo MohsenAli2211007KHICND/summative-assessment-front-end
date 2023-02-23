@@ -1,10 +1,12 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react';
 import { mockData } from '../../mockData/MockData';
+import { BrowserRouter as Router } from 'react-router-dom';
 import ProductsMainPage from './ProductsMainPage';
 
 // 1) As a shopper, I can navigate to the Products page and see the products that are stored
 // in the database so that I can decide what I want to buy.
+
 
 describe('ProductMainPage component test', () => {
     beforeEach(() => {
@@ -19,10 +21,15 @@ describe('ProductMainPage component test', () => {
 // an “Add to Cart” button
 
     it('Ruby slippers product should be listed on productMainPage ', async () => {
-        render(<ProductsMainPage />);
+        render(
+            <Router>
+              <ProductsMainPage products={mockData} />
+            </Router>
+          );
         const rubyItemImg = screen.getByAltText(mockData[0].name)
+        console.log(mockData);
         let quantity = 1;
-        const rubyItemName = await screen.findByText(mockData[0].name)
+        const rubyItemName =  screen.findByText(mockData[0].name)
         const rubyShortDescription = await screen.findByText(mockData[0].shortDescription)
         const rubyPrice = await screen.findByText(mockData[0].price)
         const rubyQuantity = await screen.findByText(`quantity: ${quantity}`)
@@ -36,7 +43,11 @@ describe('ProductMainPage component test', () => {
     });
 
     it('Chocolate Pudding product should be listed on productMainPage ', async () => {
-        render(<ProductsMainPage />);
+        render(
+            <Router>
+              <ProductsMainPage products={mockData} />
+            </Router>
+          );
         const paddingItemImg = screen.getByAltText(mockData[1].name)
         let quantity = mockData[1].id;
         const paddingItemName = await screen.findByText(mockData[1].name)
@@ -53,7 +64,11 @@ describe('ProductMainPage component test', () => {
     });
 
     it('Diamond Watch product should be listed on productMainPage ', async () => {
-        render(<ProductsMainPage />);
+        render(
+            <Router>
+              <ProductsMainPage products={mockData} />
+            </Router>
+          );
         const watchItemImg = screen.getByAltText(mockData[2].name)
         let quantity = mockData[2].id;
         const watchItemName = await screen.findByText(mockData[2].name)
@@ -70,7 +85,11 @@ describe('ProductMainPage component test', () => {
     });
 
     it('Golden Toilet product should be listed on productMainPage ', async () => {
-        render(<ProductsMainPage />);
+        render(
+            <Router>
+              <ProductsMainPage products={mockData} />
+            </Router>
+          );
         const toiletItemImg = screen.getByAltText(mockData[3].name)
         let quantity = mockData[3].id;
         const toiletItemName = await screen.findByText(mockData[3].name)
@@ -87,7 +106,11 @@ describe('ProductMainPage component test', () => {
     });
 
     it('LandYacht product should be listed on productMainPage ', async () => {
-        render(<ProductsMainPage />);
+        render(
+            <Router>
+              <ProductsMainPage products={mockData} />
+            </Router>
+          );
         const landItemImg = screen.getByAltText(mockData[4].name)
         let quantity = mockData[4].id;
         const landItemName = await screen.findByText(mockData[4].name)
@@ -100,7 +123,6 @@ describe('ProductMainPage component test', () => {
         expect(landShortDescription).toHaveTextContent(mockData[4].shortDescription)
         expect(landPrice).toHaveTextContent(mockData[4].price)
         expect(landQuantity).toHaveTextContent(5)
-
     });
 
 });
